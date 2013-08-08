@@ -1,0 +1,27 @@
+diff --git a/wordpress/wp-admin/network/site-new.php b/wordpress/wp-admin/network/site-new.php
+index 9fc5eef..13bc2f9 100644
+--- a/wordpress/wp-admin/network/site-new.php
++++ b/wordpress/wp-admin/network/site-new.php
+@@ -40,7 +40,7 @@ if ( isset($_REQUEST['action']) && 'add-site' == $_REQUEST['action'] ) {
+ 		wp_die( __( 'Can&#8217;t create an empty site.' ) );
+ 	$blog = $_POST['blog'];
+ 	$domain = '';
+-	if ( preg_match( '|^([a-zA-Z0-9-])+$|', $blog['domain'] ) )
++	if ( preg_match( '|^([a-zA-Z0-9-/])+$|', $blog['domain'] ) )
+ 		$domain = strtolower( $blog['domain'] );
+ 
+ 	// If not a subdomain install, make sure the domain isn't a reserved word
+diff --git a/wordpress/wp-config.php b/wordpress/wp-config.php
+index 9cad34f..82827e6 100644
+--- a/wordpress/wp-config.php
++++ b/wordpress/wp-config.php
+@@ -85,7 +85,8 @@ define('DOMAIN_CURRENT_SITE', 'localhost');
+ define('PATH_CURRENT_SITE', '/wordpress/');
+ define('SITE_ID_CURRENT_SITE', 1);
+ define('BLOG_ID_CURRENT_SITE', 1);
+-
++define('SUNRISE', TRUE);
++define('VHOST', 'no');
+ /* That's all, stop editing! Happy blogging. */
+ 
+ /** Absolute path to the WordPress directory. */
