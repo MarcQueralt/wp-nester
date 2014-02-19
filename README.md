@@ -73,7 +73,7 @@ So you have two options:
 Versions
 --------
 
-Currently only tested with WordPress 3.6.
+Currently only tested with WordPress 3.6 and 3.8.1.
 
 
 Acknowledgements
